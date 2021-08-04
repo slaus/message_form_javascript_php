@@ -24,7 +24,9 @@ window.addEventListener('DOMContentLoaded', function() {
         
             const request = new XMLHttpRequest();
             request.open('POST', 'server.php');
-            request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            
+            //request.setRequestHeader('Content-type', 'multipart/form-data'); //If not use JSON. Else need to comment this string. For Object with FormData need to comment this string too.
+            request.setRequestHeader('Content-type', 'application/json; charset=utf-8'); //If use JSON. Else need to comment this string.
             const formData = new FormData(form);
 
             const object = {};
@@ -42,7 +44,7 @@ window.addEventListener('DOMContentLoaded', function() {
                     form.reset();
                     setTimeout(() => {
                         statusMessage.remove();
-                    }, 2000);
+                    }, 4000);
                 } else {
                     statusMessage.textContent = message.failure;
                 }
